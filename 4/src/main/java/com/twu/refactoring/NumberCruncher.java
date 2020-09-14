@@ -18,7 +18,7 @@ public class NumberCruncher {
     }
 
     public int countPositive() {
-        return count(o -> o > 0);
+        return count(o -> o >= 0);
     }
 
     public int countNegative() {
