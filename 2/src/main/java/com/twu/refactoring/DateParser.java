@@ -56,17 +56,17 @@ public class DateParser {
     }
 
     private int getTime(String type, int start, int end, int minimum, int maximum) {
-        int year;
+        int time;
         try {
             String yearString = dateAndTimeString.substring(start, end);
-            year = Integer.parseInt(yearString);
+            time = Integer.parseInt(yearString);
         } catch (StringIndexOutOfBoundsException e) {
             throw new IllegalArgumentException(String.format(MINIMUM_CHARACTER_NUM, type, end - start));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(String.format(IS_NOT_INTEGER_MSG, type));
         }
-        if (year < minimum || year > maximum)
+        if (time < minimum || time > maximum)
             throw new IllegalArgumentException(String.format(VALID_INTERVAL, type, minimum, maximum));
-        return year;
+        return time;
     }
 }
